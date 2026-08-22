@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Apply for Leave</title>
 </head>
+
 <body>
 
 <h1>Apply for Leave</h1>
 
-<form>
+<form method="POST">
+
     <label>Leave Type</label><br>
-    <select>
+    <select name="leave_type">
         <option>Paid Leave</option>
         <option>Sick Leave</option>
         <option>Unpaid Leave</option>
@@ -18,27 +21,44 @@
     <br><br>
 
     <label>From Date</label><br>
-    <input type="date">
+    <input type="date" name="from_date" required>
 
     <br><br>
 
     <label>To Date</label><br>
-    <input type="date">
+    <input type="date" name="to_date" required>
 
     <br><br>
 
     <label>Remarks</label><br>
-    <textarea></textarea>
+    <textarea name="remarks"></textarea>
 
     <br><br>
 
     <button type="submit">Submit Leave Request</button>
+
 </form>
 
-<h2>Recent Request</h2>
-<p>Status: Pending</p>
+<h2>Your Leave Requests</h2>
+
+{% for req in requests %}
+
+<p>
+    {{ req.type }}
+    |
+    {{ req.from_date }}
+    to
+    {{ req.to_date }}
+    |
+    Status: {{ req.status }}
+</p>
+
+{% endfor %}
+
+<br>
 
 <a href="/employee">Back to Dashboard</a>
 
 </body>
+
 </html>

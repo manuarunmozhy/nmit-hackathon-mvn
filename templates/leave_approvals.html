@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Leave Approvals</title>
 </head>
+
 <body>
 
 <h1>Leave Approvals</h1>
 
-<p>
-    Manu - Sick Leave - Pending
-</p>
+{% if requests %}
 
-<button>Approve</button>
-<button>Reject</button>
+    {% for req in requests %}
 
-<br><br>
+        <div>
+            <p>
+                <strong>{{ req.name }}</strong>
+                |
+                {{ req.type }}
+                |
+                {{ req.from_date }} to {{ req.to_date }}
+                |
+                Status: {{ req.status }}
+            </p>
+
+            {% if req.status == "Pending" %}
+
+                <a href="/approve/{{ loop.index0 }}">
+                    <button>Approve</button>
+                </a>
+
+                <a href="/reject/{{ loop.index0 }}">
+                    <button>Reject</button>
+                </a>
+
+            {% endif %}
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>No leave requests yet.</p>
+
+{% endif %}
+
+<br>
 
 <a href="/admin">Back to Admin Dashboard</a>
 
 </body>
+
 </html>
