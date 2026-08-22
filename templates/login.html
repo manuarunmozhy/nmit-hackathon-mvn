@@ -1,24 +1,40 @@
-<h1>Dayflow</h1>
-<p>Human Resource Management System</p>
+<!DOCTYPE html>
+<html>
 
-<form>
-    <label>Email</label><br>
-    <input type="email" placeholder="Enter your email">
+<head>
+    <title>Dayflow HRMS</title>
+</head>
 
-    <br><br>
+<body>
 
-    <label>Password</label><br>
-    <input type="password" placeholder="Enter your password">
+    <h1>Dayflow</h1>
+    <p>Human Resource Management System</p>
 
-    <br><br>
+    <form action="/login" method="POST">
 
-    <label>Role</label><br>
-    <select>
-        <option>Employee</option>
-        <option>HR / Admin</option>
-    </select>
+        <label>Email</label><br>
+        <input type="email" name="email" placeholder="Enter your email">
 
-    <br><br>
+        <br><br>
 
-    <button type="submit">Sign In</button>
-</form>
+        <label>Password</label><br>
+        <input type="password" name="password" placeholder="Enter your password">
+
+        <br><br>
+
+        <label>Role</label><br>
+
+        <select name="role">
+            <option value="employee">Employee</option>
+            <option value="admin">HR / Admin</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Sign In</button>
+
+    </form>
+
+</body>
+
+</html>
