@@ -40,5 +40,20 @@ def attendance():
     return render_template("attendance.html")
 
 
+@app.route("/leave")
+def leave():
+    return render_template("leave.html")
+
+
+@app.route("/payroll")
+def payroll():
+    return render_template("payroll.html")
+
+
+@app.route("/leave-approvals")
+def leave_approvals():
+    return render_template("leave_approvals.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
